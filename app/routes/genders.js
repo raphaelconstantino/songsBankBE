@@ -1,5 +1,10 @@
 module.exports = function(app) {
 	
+	if (app.api === null || app.api === undefined)
+	{
+		return;
+	}
+
 	var api = app.api.genders;
 
 	app.route('/v1/genders')

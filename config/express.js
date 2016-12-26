@@ -34,7 +34,4 @@ consign({cwd: 'app'})
     .then('routes')
     .into(app);
 
-console.log('Return from express.js');
-console.log(app);
-
 module.exports = app;
