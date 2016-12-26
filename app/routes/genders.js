@@ -1,7 +1,6 @@
 module.exports = function(app) {
 	
-	console.log(app);
-	var api = app.api.genders;
+	var api = app.app.api.genders;
 
 	app.route('/v1/genders')
 		.get(api.list)
