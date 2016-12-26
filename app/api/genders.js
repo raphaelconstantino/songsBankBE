@@ -64,6 +64,7 @@ module.exports = function(app) {
 		})
 	};
 
+	console.log('End of genders')
 	return api;
 };
 
