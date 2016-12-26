@@ -28,7 +28,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-consign({cwd: 'app'})
+consign({cwd: 'source'})
     .include('models')
     .then('api')
     .then('routes')
