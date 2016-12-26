@@ -29,9 +29,9 @@ app.use(function (req, res, next) {
 });
 
 consign()
-    .include('models')
-    .then('api')
-    .then('routes')
+    .include('app/models')
+    .then('app/api')
+    .then('app/routes')
     .into(app);
 
 module.exports = app;
