@@ -64,9 +64,6 @@ module.exports = function(app) {
 		})
 	};
 
-	console.log("gender api");
-	console.log(api);
-
 	return api;
 };
 
