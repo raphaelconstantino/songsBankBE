@@ -1,5 +1,7 @@
 module.exports = function(app) {
 	
+	console.log(app);
+
 	if (app.api === null || app.api === undefined)
 	{
 		return;
