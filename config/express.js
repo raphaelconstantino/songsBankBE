@@ -28,10 +28,10 @@ app.use(function (req, res, next) {
     next();
 });
 
-consign({cwd: 'app'})
-    .include('models')
-    .then('api')
-    .then('routes')
+consign()
+    .include('app/models')
+    .then('app/api')
+    .then('app/routes')
     .into(app);
 
 module.exports = app;

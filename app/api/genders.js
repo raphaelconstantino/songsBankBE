@@ -63,7 +63,7 @@ module.exports = function(app) {
 			res.sendStatus(500);
 		})
 	};
-
+	
 	return api;
 };
 
