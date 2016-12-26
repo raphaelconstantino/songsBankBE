@@ -1,6 +1,6 @@
 module.exports = function(app) {
 	
-	var api = app.app.api.songs;
+	var api = app.api.songs;
 
 	app.route('/v1/songs')
 		.get(api.list)

@@ -1,6 +1,6 @@
 module.exports = function(app) {
 	
-	var api = app.app.api.instrumments;
+	var api = app.api.instrumments;
 
 	app.route('/v1/instrumments')
 		.get(api.list)
