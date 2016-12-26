@@ -6,7 +6,7 @@ var path = require('path');
 var app = express();
 
 //app.set('secret', 'homemavestruz'); 
-app.use(express.static('./dist'));
+app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 
 
