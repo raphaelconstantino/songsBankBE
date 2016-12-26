@@ -45,7 +45,7 @@ module.exports = function(app) {
 
 		model.create(req.body)
 		.then(function(song) {
-			res.json(song);
+			api.list(null, res);
 		}, function(error) {
 			console.log(error);
 			res.sendStatus(500);
