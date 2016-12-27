@@ -34,7 +34,7 @@ module.exports = function(app) {
 
 		model.remove({'_id' : req.params.id})
 		.then(function() {
-			res.sendStatus(200);
+			api.list(null, res);
 		}, function(error) {
 			console.log(error);
 			res.sendStatus(500);
@@ -46,7 +46,7 @@ module.exports = function(app) {
 
 		model.create(req.body)
 		.then(function(gender) {
-			res.json(gender);
+			api.list(null, res);
 		}, function(error) {
 			console.log(error);
 			res.sendStatus(500);
