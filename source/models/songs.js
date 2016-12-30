@@ -25,6 +25,10 @@ var schema = mongoose.Schema({
 		type: String,
 		required: true // 0 - Para aprender, 1 - Estou aprendendo, 2 - Aprendida
 	},
+	complexity: {
+		type: String,
+		required: false // 0 - 10
+	},	
 	lastReview : {
 		type: Date,
 		required: false
