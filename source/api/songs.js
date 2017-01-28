@@ -11,7 +11,7 @@ module.exports = function(app) {
 		model.find()
 		.populate("genders")
 		.populate("instrumments")
-		.sort([['lastReview', 'ascending']])
+		.sort({status: 1, lastReview: 1})
 		.exec(function(err, songs) {
 			res.json(songs);
 		});

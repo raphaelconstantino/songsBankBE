@@ -23,7 +23,7 @@ var schema = mongoose.Schema({
 	},
 	status: {
 		type: String,
-		required: true // 0 - Para aprender, 1 - Estou aprendendo, 2 - Aprendida
+		required: true
 	},
 	complexity: {
 		type: String,
