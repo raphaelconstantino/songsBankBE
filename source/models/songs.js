@@ -41,6 +41,10 @@ var schema = mongoose.Schema({
 		type: String,
 		required: false
 	},
+	reviewCount : {
+		type : Number,
+		required : false
+	}
 });
 
 mongoose.model('Songs', schema);
