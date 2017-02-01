@@ -10,4 +10,7 @@ module.exports = function(app) {
 		.get(api.fetchById)
 		.delete(api.removeById)
 		.put(api.update);
+
+	app.route('/v1/gendersCount')
+		.get(api.genderCount);	
 };

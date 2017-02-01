@@ -6,6 +6,22 @@ module.exports = function(app) {
 
 	var model = mongoose.model('Songs');
 
+	api.genderCount = function (req, res) {
+		var agg = [
+			{$group: {
+				_id: "$genders",
+				total: {$sum: 1}
+			}}
+		];
+
+		model.aggregate(agg, function(err, logs)
+		{
+			if (err) { console.log(err); }
+
+			res.json(logs);
+		});
+	}
+
 	api.list = function(req, res) {
 
 		model.find()
