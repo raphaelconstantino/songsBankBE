@@ -8,17 +8,31 @@ module.exports = function(app) {
 
 	api.genderCount = function (req, res) {
 		var agg = [
-			{$group: {
-				_id: "$genders",
-				total: {$sum: 1}
-			}}
+			{
+				$group : {
+					_id : "$genders",
+					total : {$sum: 1},
+					genders : {$first:'$genders'},
+				}
+			},
+			{
+				$project : {
+					_id : 0,
+					total : 1,
+					genders : 1,
+				}
+			}
 		];
 
-		model.aggregate(agg, function(err, logs)
+		model.aggregate(agg, function(err, genders)
 		{
-			if (err) { console.log(err); }
 
-			res.json(logs);
+			model.populate( genders, { "path": "genders" }, function(err, results) {
+				if (err) throw err;
+				
+				res.json(results);
+			});
+			
 		});
 	}
 
