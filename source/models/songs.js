@@ -48,6 +48,10 @@ var schema = mongoose.Schema({
 	video : {
 		type: String,
 		required: false
+	},
+	lyrics : {
+		type: String,
+		required: false
 	}
 });
 
