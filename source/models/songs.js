@@ -44,6 +44,10 @@ var schema = mongoose.Schema({
 	reviewCount : {
 		type : Number,
 		required : false
+	},
+	video : {
+		type: String,
+		required: false
 	}
 });
 
