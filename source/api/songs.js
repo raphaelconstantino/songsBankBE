@@ -51,6 +51,8 @@ module.exports = function(app) {
 	api.fetchById = function(req, res) {
 
 		model.findById(req.params.id)
+		.populate("genders")
+		.populate("instrumments")
 		.then(function(song) {
 			if (!song) throw new Error('Song not found');
 			res.json(song);
