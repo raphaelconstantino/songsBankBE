@@ -36,6 +36,36 @@ module.exports = function(app) {
 		});
 	}
 
+	api.instrummentCount = function (req, res) {
+		var agg = [
+			{
+				$group : {
+					_id : "$instrumments",
+					total : {$sum: 1},
+					instrumments : {$first:'$instrumments'},
+				}
+			},
+			{
+				$project : {
+					_id : 0,
+					total : 1,
+					instrumments : 1,
+				}
+			}
+		];
+
+		model.aggregate(agg, function(err, instrumments)
+		{
+
+			model.populate( instrumments, { "path": "instrumments" }, function(err, results) {
+				if (err) throw err;
+				
+				res.json(results);
+			});
+			
+		});
+	}	
+
 	api.list = function(req, res) {
 
 		model.find()

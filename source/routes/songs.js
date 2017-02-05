@@ -13,4 +13,7 @@ module.exports = function(app) {
 
 	app.route('/v1/gendersCount')
 		.get(api.genderCount);	
+
+	app.route('/v1/instrummentCount')
+		.get(api.instrummentCount);			
 };
