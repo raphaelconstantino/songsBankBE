@@ -36,6 +36,22 @@ module.exports = function(app) {
 		});
 	}
 
+	api.statusCount = function (req, res) {
+		var agg = [{
+				$group: {
+					_id: "$status",
+					count: { $sum: 1 }
+				}
+			}
+		];
+
+		model.aggregate(agg, function(err, results)
+		{
+			if (err) throw err;
+			res.json(results);
+		});
+	}
+
 	api.instrummentCount = function (req, res) {
 		var agg = [
 			{
