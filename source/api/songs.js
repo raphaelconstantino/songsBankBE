@@ -84,7 +84,32 @@ module.exports = function(app) {
 
 	api.list = function(req, res) {
 
-		model.find()
+		var query = {}
+		
+		if (req.query)
+		{
+			if (req.query.status)
+			{
+				query.status = req.query.status;
+			}
+
+			if (req.query.genders)
+			{
+				query.genders = req.query.genders;
+			}
+
+			if (req.query.instrumments)
+			{
+				query.instrumments = req.query.instrumments;
+			}
+
+			if (req.query.complexity)
+			{
+				query.complexity = req.query.complexity;
+			}
+		}	
+
+		model.find(query)
 		.populate("genders")
 		.populate("instrumments")
 		.sort({status: 1, lastReview: 1})
@@ -95,7 +120,7 @@ module.exports = function(app) {
 	};
 
 	api.fetchById = function(req, res) {
-
+		
 		model.findById(req.params.id)
 		.populate("genders")
 		.populate("instrumments")
@@ -124,7 +149,7 @@ module.exports = function(app) {
 
 		model.create(req.body)
 		.then(function(song) {
-			api.list(null, res);
+			res.json(song);
 		}, function(error) {
 			console.log(error);
 			res.sendStatus(500);
@@ -135,7 +160,7 @@ module.exports = function(app) {
 
 		model.findByIdAndUpdate(req.params.id, req.body)
 		.then(function(song) {
-			api.list(null, res);
+			res.json(song);
 		}, function(error) {
 			console.log(error);
 			res.sendStatus(500);
