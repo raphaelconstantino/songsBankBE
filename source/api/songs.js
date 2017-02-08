@@ -86,7 +86,7 @@ module.exports = function(app) {
 
 		var query = {}
 		
-		if (req.query)
+		if (req && req.query)
 		{
 			if (req.query.status)
 			{
