@@ -8,8 +8,17 @@ var app = express();
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 
+consign({cwd: 'source'})
+    .include('models')
+    .then('api')
+    .then('routes')
+    .into(app);
+
+module.exports = app;
+
+
 // Add headers
-app.use(function (req, res, next) {
+/*app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
@@ -26,12 +35,4 @@ app.use(function (req, res, next) {
 
     // Pass to next layer of middleware
     next();
-});
-
-consign({cwd: 'source'})
-    .include('models')
-    .then('api')
-    .then('routes')
-    .into(app);
-
-module.exports = app;
+});*/
