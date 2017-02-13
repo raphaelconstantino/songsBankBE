@@ -19,4 +19,7 @@ module.exports = function(app) {
 
 	app.route('/v1/statusCount')
 		.get(api.statusCount);			
+
+	app.route('/v1/topPlayed')
+		.get(api.topPlayed);					
 };
