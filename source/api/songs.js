@@ -122,7 +122,7 @@ module.exports = function(app) {
 	api.topPlayed = function(req, res) {
 
 		model.find()
-		.sort({reviewCount: 1})
+		.sort({reviewCount: -1})
 		.limit(6)
 		.exec(function(err, songs) {
 			res.json(songs);
