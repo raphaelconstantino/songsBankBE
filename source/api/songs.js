@@ -107,6 +107,11 @@ module.exports = function(app) {
 			{
 				query.complexity = req.query.complexity;
 			}
+			
+			if (req.query.name)
+			{
+				query.name = req.query.name;
+			}			
 		}	
 
 		model.find(query)
