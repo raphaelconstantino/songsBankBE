@@ -130,6 +130,14 @@ module.exports = function(app) {
 
 	};
 
+	api.fetchByName = function (req, res) {
+		var string = req.params.name;
+
+		model.find({"name": { $regex: new RegExp("^" + string.toLowerCase(), "i") } }).then(function (song) {
+			res.json(song);			
+		});
+	}
+
 	api.fetchById = function(req, res) {
 		
 		model.findById(req.params.id)

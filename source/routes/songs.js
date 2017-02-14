@@ -6,6 +6,9 @@ module.exports = function(app) {
 		.get(api.list)
 		.post(api.add);
 
+	app.route('/v1/song/name/:name')
+		.get(api.fetchByName);
+
 	app.route('/v1/songs/:id')
 		.get(api.fetchById)
 		.delete(api.removeById)
