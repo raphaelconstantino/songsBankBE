@@ -25,4 +25,7 @@ module.exports = function(app) {
 
 	app.route('/v1/topPlayed')
 		.get(api.topPlayed);					
+
+	app.route('/v1/listPlayedByDate')
+		.get(api.listPlayedByDate);					
 };

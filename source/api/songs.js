@@ -135,6 +135,17 @@ module.exports = function(app) {
 
 	};
 
+	api.listPlayedByDate = function (req, res) {
+		var start = new Date();
+		var end = new Date();
+
+		end.setDate(end.getDate() - 30);
+
+		model.find({lastReview: {$gte: start, $lt: end}}).exec(function (err, songs) {
+			res.json(songs);
+		});
+	}
+
 	api.fetchByName = function (req, res) {
 		var string = req.params.name;
 
