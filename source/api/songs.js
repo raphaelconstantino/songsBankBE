@@ -139,7 +139,7 @@ module.exports = function(app) {
 		var start = new Date();
 		var end = new Date();
 
-		end.setDate(end.getDate() - 30);
+		start.setDate(start.getDate() - 30);
 
 		model.find({lastReview: {$gte: start, $lt: end}}).exec(function (err, songs) {
 			res.json(songs);
