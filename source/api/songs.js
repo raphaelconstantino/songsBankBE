@@ -141,7 +141,7 @@ module.exports = function(app) {
 
 		start.setDate(start.getDate() - 30);
 
-		model.find({lastReview: {$gte: start, $lt: end}}).exec(function (err, songs) {
+		model.count({lastReview: {$gte: start, $lt: end}}).exec(function (err, songs) {
 			res.json(songs);
 		});
 	}
