@@ -193,7 +193,7 @@ module.exports = function(app) {
 
 	api.update = function(req, res) {
 
-		model.findByIdAndUpdate(req.params.id, req.body)
+		model.findByIdAndUpdate(req.params.id, { $set : req.body })
 		.then(function(song) {
 			api.list(null, res);
 		}, function(error) {
