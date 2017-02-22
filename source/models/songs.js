@@ -52,6 +52,10 @@ var schema = mongoose.Schema({
 	lyrics : {
 		type: String,
 		required: false
+	},
+	favorite : {
+		type: Boolean,
+		required: false
 	}
 });
 
